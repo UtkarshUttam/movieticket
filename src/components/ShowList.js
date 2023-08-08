@@ -14,8 +14,8 @@ const ShowList = ({ onSelectShow }) => {
   }, []);
 
   return (
-    <div className="container text-warning">
-      <h1>Filmozia</h1>
+    <div className="container">
+      <h1>Top TV Shows</h1>
       <div className="row">
         {shows.map((show) => (
           <div key={show.show.id} className="col-md-4 mb-4">
