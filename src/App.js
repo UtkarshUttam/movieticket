@@ -18,8 +18,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header text-warning header-bg">
-        {/* <h1>Filmozia</h1> */}
+      <header className="App-header header-bg">
+        Filmozia
       </header>
       {selectedShow ? (
         <ShowDetails show={selectedShow} onBookTicket={handleBookTicket} />
