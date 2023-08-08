@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import ShowList from './components/ShowList';
+import ShowDetails from './components/ShowDetails';
 
 function App() {
+  const [selectedShow, setSelectedShow] = useState(null);
+  const [userDetails, setUserDetails] = useState(null);
+
+  const handleSelectShow = (show) => {
+    setSelectedShow(show);
+  };
+
+  const handleBookTicket = (show) => {
+    // Handle booking ticket, saving to local/session storage, etc.
+    setUserDetails({ showName: show.name, showId: show.id });
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className="App-header text-warning header-bg">
+        {/* <h1>Filmozia</h1> */}
       </header>
+      {selectedShow ? (
+        <ShowDetails show={selectedShow} onBookTicket={handleBookTicket} />
+      ) : (
+        <ShowList onSelectShow={handleSelectShow} />
+      )}
     </div>
   );
 }
